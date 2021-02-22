@@ -1,8 +1,8 @@
-if(DEFINED PICO_SDK_PATH})
-    set(TINYUSB_SDK_PATH $PICO_SDK_PATH}/lib/tinyusb)
+if (DEFINED $ENV{TINYUSB_SDK_PATH})
+    set(TINYUSB_SDK_PATH $ENV{TINYUSB_SDK_PATH})
     message("TinyUDB path is ${TINYUSB_SDK_PATH}")
 else()
-    set(TINYUSB_SDK_PATH $ENV{TINYUSB_SDK_PATH})
+    set(TINYUSB_SDK_PATH $ENV{PICO_SDK_PATH}/lib/tinyusb)
     message("TinyUDB path is ${TINYUSB_SDK_PATH}")
 endif()
 

@@ -11,4 +11,5 @@ endif()
 
 target_include_directories (tinyusb-cpp PUBLIC 
     ${TINYUSB_SDK_PATH}/src 
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )

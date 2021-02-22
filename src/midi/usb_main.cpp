@@ -24,6 +24,7 @@
  */
 
 #include "USB.h"
+#include "USBDescriptor.h"
 
 // Invoked when received GET DEVICE DESCRIPTOR
 // Application return pointer to descriptor

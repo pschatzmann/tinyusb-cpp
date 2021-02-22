@@ -28,20 +28,20 @@
 // Invoked when received GET DEVICE DESCRIPTOR
 // Application return pointer to descriptor
 uint8_t const * tud_descriptor_device_cb(void) {
-    return USBMidi::instance().get_descriptor_device();
+  return (const uint8_t*) USBDevice::instance().deviceDescriptor();
 }
 
 // Invoked when received GET CONFIGURATION DESCRIPTOR
 // Application return pointer to descriptor
 // Descriptor contents must exist long enough for transfer to complete
 uint8_t const * tud_descriptor_configuration_cb(uint8_t index){
-    return USBMidi::instance().get_descriptor_configuration(index);
+  return USBDevice::instance().configurationDescriptor(index);
 }
 
 // Invoked when received GET STRING DESCRIPTOR request
 // Application return pointer to descriptor, whose contents must exist long enough for transfer to complete
 uint16_t const* tud_descriptor_string_cb(uint8_t index, uint16_t langid) {
-    return USBMidi::instance().get_descriptor_string(index, langid);
+  return USBDevice::instance().string(index);
 }
 
 // Invoked when device is mounted

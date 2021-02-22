@@ -5,15 +5,16 @@ I really like the [TinyUSB project](https://github.com/hathach/tinyusb). It allo
 However, it is C only and not too easy to use: I wanted to have some functionality where I can experiment with the USB descriptors and where I can add and combine Descriptors as easy as possible. So here is the result.
 
 I am using it mainly together with the Raspberry Pico (hence the cmake), but it should work with other processors as well.
-The [class documentation can be found in the doc folder](https://pschatzmann.github.io/tinyusb-cpp/doc/html/).
+
+The class documentation has been generated with the help of Doxygen and can be found in the [doc folder](https://pschatzmann.github.io/tinyusb-cpp/doc/html/).
 
 Setting up a USB device descriptor can be done with one line of code:
 
 ```
 USBDevice::instance().idVendor(0xCafe).idProduct(0x0001).bcdDevice(0x0100).manufacturer("TinyUSB").product("TinyUSB Device").serialNumber("123456";
 ```
-
-Defining the Configuration descriptor and the related strings also usually only 2 lines of code. Here is a MIDI example:
+This is also automatically taking care of the string descriptors.
+Defining the Configuration Descriptor is also usually only 2 lines of code. Here is a MIDI example:
 ```
 USBConfiguration* config = USBDevice::instance().setConfigurationDescriptor(TUD_CONFIG_DESCRIPTOR(1, ITF_NUM_TOTAL, 0, CONFIG_TOTAL_LEN,TUSB_DESC_CONFIG_ATT_REMOTE_WAKEUP, 100)); 
 config->addDescriptor(TUD_MIDI_DESCRIPTOR(ITF_NUM_MIDI, 0, EPNUM_MIDI, 0x80 | EPNUM_MIDI, 64));

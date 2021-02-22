@@ -5,7 +5,7 @@ I really like the [TinyUSB project](https://github.com/hathach/tinyusb). It allo
 However, it is C only and not too easy to use: I wanted to have some functionality where I can experiment with the USB descriptors and where I can add and combine Descriptors as easy as possible. So here is the result.
 
 I am using it mainly together with the Raspberry Pico (hence the cmake), but it should work with other processors as well.
-The [class documentation can be found in the doc folder](./doc/index.html).
+The [class documentation can be found in the doc folder](https://pschatzmann.github.io/tinyusb-cpp/doc/html/).
 
 Setting up a USB device descriptor can be done with one line of code:
 

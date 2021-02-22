@@ -8,10 +8,7 @@ else()
     message(FATAL_ERROR "TinyUSB location was not defined")
 endif()
 
-add_library (tinyusb-cpp  midi/usb_main.cpp)
 
 target_include_directories (tinyusb-cpp PUBLIC 
     ${TINYUSB_SDK_PATH}/src 
-    ${CMAKE_CURRENT_SOURCE_DIR} 
-    ${CMAKE_CURRENT_SOURCE_DIR}/midi
 )

@@ -1,2 +1,10 @@
+if(DEFINED PICO_SDK_PATH})
+    set(TINYUSB_SDK_PATH $PICO_SDK_PATH}/lib/tinyusb)
+    message("TinyUDB path is ${TINYUSB_SDK_PATH}")
+else()
+    set(TINYUSB_SDK_PATH $ENV{TINYUSB_SDK_PATH})
+    message("TinyUDB path is ${TINYUSB_SDK_PATH}")
+endif()
+
 add_library (tinyusb-cpp  midi/usb_main.cpp)
-target_include_directories (tinyusb-cpp PUBLIC ${CMAKE_CURRENT_DIR} ${CMAKE_CURRENT_DIR}/midi)
+target_include_directories (tinyusb-cpp PUBLIC ${TINYUSB_SDK_PATH}/src ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/midi)
